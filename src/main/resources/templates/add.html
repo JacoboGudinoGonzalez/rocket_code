@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="shared/header :: header('Registrar tarea')">
+</head>
+<body>
+<div class="container-sm" style="width: 300px; margin: 0 auto">
+    <h1>Registrar tarea</h1>
+    <form th:action="@{/tasks}" th:object="${task}" method="post">
+
+        <div data-mdb-input-init class="form-outline mb-4">
+            <label>Nombre</label>
+            <input type="text" class="form-control" th:field="*{title}" id="title">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+        </div>
+        <div data-mdb-input-init class="form-outline mb-4">
+            <label>Descripción</label>
+            <input type="text" class="form-control" th:field="*{description}" id="description">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+        </div>
+        <div data-mdb-input-init class="form-outline mb-4">
+            <label>Fecha Inicio</label>
+            <input type="date" class="form-control" th:field="*{start_date}" id="start_date">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('start_date')}" th:errors="*{start_date}"></div>
+        </div>
+        <br>
+        <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block">Agregar</button>
+
+
+    </form>
+</div>
+</body>
+</html>

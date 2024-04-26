@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="shared/header :: header('Tareas')">
+</head>
+<body>
+<div class="container">
+    <h1>Tareas</h1>
+    <table class="table table-striped">
+        <tbody>
+        <tr th:each="task : ${tasks}">
+            <td th:text="${task.id}" class="align-bottom"></td>
+            <td th:text="${task.title}" class="align-bottom"></td>
+            <td th:text="${task.description}" class="align-bottom"></td>
+            <td th:text="${task.start_date}" class="align-bottom"></td>
+            <td><a th:href="${'/tasks/edit/' + task.id}" class="btn btn-primary" role="button">Editar</a></td>
+            <td><a th:href="${'/tasks/delete/' + task.id}" class="btn btn-danger" role="button">Borrar</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/tasks/new" class="btn btn-primary" role="button">Agregar</a>
+</div>
+</body>
+</html>
